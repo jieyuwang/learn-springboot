@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/learn-freemarker/learn-freemarker.iml" filepath="$PROJECT_DIR$/learn-freemarker/learn-freemarker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/learn-freemarker/learn-core.iml" filepath="$PROJECT_DIR$/learn-freemarker/learn-core.iml" />
       <module fileurl="file://$PROJECT_DIR$/learnspringBoot.iml" filepath="$PROJECT_DIR$/learnspringBoot.iml" />
     </modules>
   </component>
