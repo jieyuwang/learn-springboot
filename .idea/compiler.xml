@@ -8,11 +8,13 @@
         <outputRelativeToContentRoot value="true" />
         <module name="learn-core" />
         <module name="learn-freemarker" />
+        <module name="learn-webflux" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="learn-core" target="1.8" />
       <module name="learn-freemarker" target="1.8" />
+      <module name="learn-webflux" target="1.8" />
       <module name="learnspringBoot" target="1.5" />
     </bytecodeTargetLevel>
   </component>
