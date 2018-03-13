@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>展示界面</title>
+</head>
+<body>
+<div>
+    <td th:if="${result=='success'}">
+        <tr th:each="work,index:${works}">
+            <option th:text="${work}"></option>
+        </tr>
+        一共交了
+        <tr th:text="${counnt}">
+            ${counnt}
+        </tr>
+        份<br/>
+    </td>
+    <td th:if="${result=='empty'}">
+        <script>
+            alert("暂时还没有人提交！");
+        </script>
+    </td>
+    <!--<tr th:each="work,index:${works}">
+        <option th:text="${work}"></option>
+    </tr>
+    一共交了
+    <tr th:text="${counnt}">
+        ${counnt}
+    </tr>
+    份<br/>-->
+  <!--  <a th:href="@{/admin}">返回</a>-->
+</div>
+</body>
+</html>

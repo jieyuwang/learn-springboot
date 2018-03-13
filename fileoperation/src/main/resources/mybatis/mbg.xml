@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+    <context id="DB2Tables" targetRuntime="MyBatis3">
+        <!-- 官方网站:http://www.mybatis.org/generator/configreference/commentGenerator.html -->
+        <!-- 设置不生成注释 true是不生成 -->
+        <commentGenerator>
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
+
+        <!-- 配置数据库连接信息 -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://wang1130.cn:3306/updata"
+                        userId="root"
+                        password="1130wang">
+        </jdbcConnection>
+
+        <!--  -->
+        <javaTypeResolver >
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+
+        <!-- 指定javabean生成的位置 -->
+        <javaModelGenerator
+                targetPackage="com.learn.core.bean"
+                targetProject=".\core\src\main\java">
+            <property name="enableSubPackages" value="true" />
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+        <!-- sql映射文件生成的的位置 -->
+        <sqlMapGenerator targetPackage="mapper"
+                         targetProject=".\core\src\main\resources">
+            <property name="enableSubPackages" value="true" />
+        </sqlMapGenerator>
+
+        <!-- 指定到接口生成的位置，mapper接口 -->
+        <javaClientGenerator type="XMLMAPPER"
+                             targetPackage="com.learn.core.dao"
+                             targetProject=".\core\src\main\java">
+            <property name="enableSubPackages" value="true" />
+        </javaClientGenerator>
+        <!-- table指定每个表的生成策略 -->
+        <table tableName="t_people" domainObjectName="People"></table>
+        <table tableName="t_work" domainObjectName="Work"></table>
+        <table tableName="t_school" domainObjectName="School"></table>
+        <!--
+         <table tableName="t_dept" domainObjectName="Department"></table> -->
+        <!--  <table tableName="dept" domainObjectName="Department"></table> -->
+        <!--  <table tableName="t_category" domainObjectName="Category"></table>
+          <table tableName="t_information" domainObjectName="Information"></table> -->
+        <!--  <table tableName="t_comment" domainObjectName="Comment"></table> -->
+        <!--<table tableName="t_article" domainObjectName="Article"></table>-->
+    </context>
+</generatorConfiguration>

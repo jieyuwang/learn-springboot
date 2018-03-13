@@ -1,0 +1,45 @@
+server:
+  port: 8080
+logging:
+  path: D:\.m2\log\test
+  level.com.zhanquan: error #根据包的路径配置不同的资源路径log级别
+  level: error
+spring:
+  datasource:
+    url: jdbc:mysql://wang1130.cn:3306/updata?useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: 1130wang
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+#  jpa:
+#    show-sql: true
+#  # Redis数据库索引（默认为0）
+#  redis:
+#    database: 0
+#    host: wang1130.cn
+#    port: 6379
+#    password: redis
+#    timeout: 0
+#    pool:
+#      max-active: 8
+#  thymeleaf:
+#    cache: false
+mybatis:
+  mapperLocations: classpath:mapper/*.xml
+  type-aliases-package: com.learn.zhanquan.core
+  config-location: classpath:mybatis/mybatis-config.xml
+
+#spring:
+#  devtools:
+#    restart:
+#      additional-paths:
+#  servlet:
+#    context-path: /zhan
+#spring:
+#  profiles:
+#    active: dev
+#  datasource:
+#    driver-class-name: com.mysql.jdbc.Driver
+#    url: jdbc:mysql://wang1130.cn:3306/framework?useUnicode=true&amp;characterEncoding=UTF-8
+#    username: root
+#    data-password: 1130wang

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8"/>
+		<title>作业提交</title>
+		<link rel="stylesheet" type="text/css" href="/layui/js/bootstrap.min.css"/>
+		<script src="/layui/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/layui/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+				*{
+	font-family: "微软雅黑";
+	/*color: white;*/
+}
+body{
+	background-color: #2ca1cc;
+}
+.fr{
+	float: right;
+	height: 100px;
+	width: 100px;
+
+}
+.fl{
+	float: left;
+
+}
+.box{
+	width: 600px;
+	height: 500px;
+	border-radius: 5px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	background-color: white;
+	padding: 40px;
+}
+input,button,select,textarea
+{
+      outline:none;
+      -webkit-appearance:none;
+}
+.title{
+	width: 100%;
+	height: 80px;
+	border-bottom: 1px solid rgb(233,233,233);
+	margin-bottom: 20px;
+}
+#name{
+	height: 28px;
+}
+.message{
+	width: 100%;
+	height: 250px;
+}
+form{
+				color: #000000;
+			}
+
+select{
+	height: 38px !important;
+}
+
+button{
+	margin-top: 10%;
+}
+
+			</style>
+	</head>
+	<body>
+	<script>
+        function mysubmit() {
+            if(checkParam() )
+            {
+                if (confirm("确定要提交么?")){
+                    $("#form1").submit();
+				}
+            }
+        }
+        function checkParam()
+        {
+            var name = document.getElementById("name").value;
+            var school = document.getElementById("school").value;
+            var file = document.getElementById("file").value;
+
+            if(name.length == 0)
+            {
+                alert("姓名不能为空！");
+                return false;
+            }
+            if(school.length==0)
+            {
+                alert("学院不能为空！");
+                return false;
+            }
+            if(file.length==0)
+            {
+                alert("文件不能为空！");
+                return false;
+            }
+            return true;
+        }
+	</script>
+
+		<div class="box" style="float: left">
+			<div class="title">
+				<h1 class="fl" style="color:black;margin: 0px;font-size: 40px;">java组作业</h1>
+				<img class="fr" src="/layui/images/face/log.jpg" height="200px" width="100px" />
+			</div>
+			<form style="width: 50%;float:left;" name="form1" id="form1" method="post" action="upload" enctype="multipart/form-data">
+				<div class="form-group">
+				<label for="name">姓名</label>
+					<input type="text" class="form-control" id="name" name="name"
+			   		placeholder="请输入你的姓名"/>
+			</div>
+				<div class="form-group">
+   				 <label for="name">你的学院</label>
+					<select class="form-control" id="school" name="school">
+						<tr th:each="school,index:${schoolList}">
+							<option th:text="${school.school}">${school.school}</option>
+						</tr>
+    				</select>
+  			</div>
+  				<div class="form-group">
+    			<label for="name" >你的作业</label>
+				<select class="form-control" id="homework" name="homework" onclick="showWorkList">
+					<tr th:each="work,index:${workList}">
+						<option th:text="${work.homework}"></option>
+					</tr>
+				</select>
+  			</div>
+				<div class="form-group">
+				<label for="file">文件输入</label>
+					<input type="file" id="file" name="file" />
+			</div>
+				<!--<button type="submit" class="btn btn-primary btn-lg" data-target="#myModal" >提交</button>-->
+				<div class="from-group" style="margin-top: 20px"  th:marginheight="100px" th:height="73px">
+				<a   href="javascript:mysubmit();" class="btn btn-primary btn-lg"  > 提交 </a>
+			</div>
+
+				<div>
+				<td th:if="${result=='success'}">
+					<script>
+                        alert("提交成功")
+					</script>
+				</td>
+				<td th:if="${result=='failed'}">
+					<script>
+                        alert("上传失败请重新上传")
+					</script>
+				</td>
+					<td th:if="${result=='empty'}">
+						<script>
+                            alert("暂时还没有人提交")
+						</script>
+					</td>
+			</div>
+			</form>
+			<div class="form-group" style="float: right;margin-right: 150px;margin-top: 10px">
+				<label for="name" >查看你的作业是否提交</label>
+				<!--<select class="form-control" id="homework" name="homework" onclick="showWorkList">-->
+				<tr th:each="work,index:${workList}">
+					<!--<option th:text="${work.homework}" th:href="@{/show(id=${work.homework})}"></option>-->
+					<a th:text="${work.homework}" id="work" name="work" th:href="@{/show(id=${work.homework})}"> </a>
+				</tr>
+				<!--</select>-->
+			</div>
+
+		</div>
+
+	</body>
+
+</html>

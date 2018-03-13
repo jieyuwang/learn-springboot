@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+
+    <title>文件上传</title>
+    <script type="text/javascript">
+        function submitForm(){
+            alert("你好");
+            document.getElementsByName("form1").submit();
+            alert("好");
+        }
+    </script>
+</head>
+<body>
+<h2>文件下载</h2>
+<form name="form1" id="form1" method="post" action="show">
+    <tr th:each="work,index:${workList}">
+        <div>
+            <a th:text="${work.homework}" id="work" name="work" th:href="@{/show(id=${work.homework})}"> </a>
+            <a th:href="@{/download(id=${work.homework})}">下载</a>
+        </div>
+    </tr>
+
+</form>
+
+</body>
+</html>

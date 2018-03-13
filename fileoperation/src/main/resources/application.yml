@@ -1,0 +1,25 @@
+server:
+  port: 8080
+spring:
+  profiles:
+    active: dev
+  jackson:
+    date-format: java.text.SimpleDateFormat
+---
+spring:
+  profiles: dev
+server:
+  port: 8081
+---
+spring:
+  profiles: test
+server:
+  port: 8082
+---
+spring:
+  profiles: prd
+server:
+  port: 8083
+---
+
+

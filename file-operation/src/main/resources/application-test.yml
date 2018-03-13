@@ -1,0 +1,14 @@
+#spring:
+#  devtools:
+#    restart:
+#      additional-paths:
+#  servlet:
+#    context-path: /zhan
+#spring:
+#  profiles:
+#    active: dev
+#  datasource:
+#    driver-class-name: com.mysql.jdbc.Driver
+#    url: jdbc:mysql://wang1130.cn:3306/framework?useUnicode=true&amp;characterEncoding=UTF-8
+#    username: root
+#    data-password: 1130wang
